@@ -1,94 +1,87 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VerdantSMP - Server Minecraft</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shop Key</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #2c3e50, #3498db);
-      color: white;
-      text-align: center;
-      padding: 20px;
+    :root{
+      --bg:#0e0f12;
+      --card:#1b1e24;
+      --muted:#bfc7d5;
+      --text:#fff;
+      --primary:#1877ff;
+      --radius:22px;
     }
-    .logo {
-      max-width: 250px;
-      margin-bottom: 20px;
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,Arial}
+    .container{max-width:860px;margin:24px auto;padding:0 16px}
+    .title{font-size:28px;font-weight:700;margin:8px 0 20px}
+    .grid{
+      display:grid;gap:22px;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
     }
-    .btn {
-      display: inline-block;
-      padding: 10px 20px;
-      margin: 10px;
-      background: #27ae60;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:22px 18px 18px;
+      position:relative;
+      text-align:center;
+      box-shadow:0 12px 30px rgba(0,0,0,.35);
     }
-    .btn:hover {
-      background: #2ecc71;
+    .key-img{
+      width:96px;height:96px;object-fit:contain;
+      position:absolute;top:-38px;left:50%;transform:translateX(-50%) rotate(-12deg);
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,.5));
+      pointer-events:none;
     }
-    .section {
-      background: rgba(0,0,0,0.5);
-      padding: 15px;
-      border-radius: 10px;
-      margin: 15px auto;
-      max-width: 500px;
+    .name{margin-top:48px;font-size:24px;font-weight:800;letter-spacing:.4px}
+    .price{margin:6px 0 12px;color:var(--muted);font-size:16px}
+    .qty{display:flex;justify-content:center;gap:10px;margin:12px 0 16px}
+    .qty button{
+      min-width:54px;padding:10px 0;border-radius:12px;border:1px solid #2a2f39;
+      background:#0d0f13;color:#fff;font-weight:600;cursor:pointer;
     }
-    h2 {
-      margin-top: 0;
-      color: #f1c40f;
+    .qty button.active{background:var(--primary);border-color:transparent}
+    .add{
+      display:block;width:100%;border:0;border-radius:16px;padding:14px 16px;
+      background:var(--primary);color:#fff;font-weight:700;font-size:16px;cursor:pointer;
     }
+    .total{display:block;margin-top:8px;color:#d7e3ff;font-size:14px}
   </style>
 </head>
 <body>
+  <div class="container">
+    <div class="title">🗝️ Shop Key</div>
 
-  <!-- Logo -->
-  <img src="https://raw.githubusercontent.com/<username>/<repo>/main/verdanteco.png" alt="VerdantSMP Logo" class="logo">
-
-  <!-- IP Server -->
-  <div class="section">
-    <h2>🎮 IP Server</h2>
-    <p id="server-ip">play.verdantsmp.com (1.20 - 1.21.4)</p>
-    <a class="btn" onclick="copyText('server-ip')">📋 Copy IP</a>
-  </div>
-
-  <!-- Shop -->
-  <div class="section">
-    <h2>🛒 Shop Key</h2>
-    <p>Stone: 10k = 10 key</p>
-    <p>Prime: 10k = 8 key</p>
-    <p>Crimson: 10k = 6 key</p>
-    <p>Gold: 10k = 6 key</p>
-    <p>Amethyst: 10k = 5 key</p>
-  </div>
-
-  <!-- Kit -->
-  <div class="section">
-    <h2>⚔️ Kit Rank</h2>
-    <p>VIP: 50k</p>
-    <p>MVP: 60k</p>
-    <p>KING: 70k</p>
-    <p>GHOST: 100k</p>
-  </div>
-
-  <!-- Discord -->
-  <div class="section">
-    <h2>💬 Discord</h2>
-    <a class="btn" href="https://discord.gg/zkScj59TJj" target="_blank">🌐 Tham gia</a>
-    <a class="btn" onclick="copyText('discord-link')">📋 Copy Link</a>
+    <div id="grid" class="grid">
+      <!-- Cards sẽ được render bằng JS từ cấu hình bên dưới -->
+    </div>
   </div>
 
   <script>
-    function copyText(elementId) {
-      const text = document.getElementById(elementId).innerText;
-      navigator.clipboard.writeText(text).then(() => {
-        alert("✅ Đã copy: " + text);
-      });
-    }
-  </script>
+    // ====== CẤU HÌNH SẢN PHẨM ======
+    const PRODUCTS = [
+      {id:'common',   name:'Common',   price:1000,   img:'common.png'},   // đổi link ảnh nếu có
+      {id:'prime',    name:'Prime',    price:2000,   img:'prime.png'},
+      {id:'gold',     name:'Gold',     price:3000,   img:'gold.png'},
+      {id:'crimson',  name:'Crimson',  price:4000,   img:'crimson.png'},
+      {id:'amethyst', name:'Amethyst', price:5000,   img:'amethyst.png'},
+    ];
+    const QTY_OPTIONS = [1,5,10,20];
 
-</body>
-  </html>
+    // ====== HÀM TIỆN ÍCH ======
+    const fmtVND = n => n.toLocaleString('vi-VN') + 'đ';
+
+    // ====== RENDER UI ======
+    const grid = document.getElementById('grid');
+
+    function renderCard(p){
+      const el = document.createElement('div');
+      el.className = 'card';
+      el.innerHTML = `
+        <img class="key-img" src="${p.img}" alt="${p.name} key" onerror="this.style.display='none'">
+        <div class="name">${p.name}</div>
+        <div class="price">Giá: <b>${fmtVND(p.price)}</b> / 1 key</div>
+        <div class="qty" role="group" aria-label="Chọn số lượng">
+          ${QTY_OPTIONS.map((q,i)=>`<button data-q="${q}" class="${i===0?'active':''}">${
