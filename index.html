@@ -2,85 +2,97 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>VerdantSMP - Minecraft Server</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VerdantSMP - Server Minecraft</title>
   <style>
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #2c3e50, #3498db);
       color: white;
       text-align: center;
-      background: url('https://wallpapercave.com/wp/wp10401598.jpg') no-repeat center center fixed;
-      background-size: cover;
-    }
-    .overlay {
-      background: rgba(0,0,0,0.6);
-      min-height: 100vh;
       padding: 20px;
     }
-    .logo img {
-      max-width: 280px;
-      margin-top: 20px;
-    }
-    h1 {
-      font-size: 38px;
-      color: #4caf50;
-      margin-top: 20px;
-    }
-    .info {
-      background: rgba(0,0,0,0.7);
-      padding: 20px;
-      margin-top: 20px;
-      border-radius: 12px;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-    }
-    .ip {
-      font-size: 22px;
-      font-weight: bold;
-      color: #ffeb3b;
-      margin: 10px 0;
+    .logo {
+      max-width: 250px;
+      margin-bottom: 20px;
     }
     .btn {
       display: inline-block;
+      padding: 10px 20px;
       margin: 10px;
-      padding: 12px 20px;
-      font-size: 18px;
+      background: #27ae60;
       color: white;
-      background: #4caf50;
-      border-radius: 8px;
       text-decoration: none;
-      transition: 0.3s;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
     }
     .btn:hover {
-      background: #45a049;
+      background: #2ecc71;
     }
-    footer {
-      margin-top: 40px;
-      font-size: 14px;
-      color: #ccc;
+    .section {
+      background: rgba(0,0,0,0.5);
+      padding: 15px;
+      border-radius: 10px;
+      margin: 15px auto;
+      max-width: 500px;
+    }
+    h2 {
+      margin-top: 0;
+      color: #f1c40f;
     }
   </style>
 </head>
 <body>
-  <div class="overlay">
-    <!-- Logo server -->
-    <div class="logo">
-      <img src="https://raw.githubusercontent.com/<username>/<repo>/main/VerdantSMP.png" alt="VerdantSMP Logo">
-    </div>
 
-    <!-- Tiêu đề -->
-    <h1>🌍 VerdantSMP</h1>
+  <!-- Logo -->
+  <img src="https://raw.githubusercontent.com/<username>/<repo>/main/verdanteco.png" alt="VerdantSMP Logo" class="logo">
 
-    <!-- Thông tin server -->
-    <div class="info">
-      <p>⚔️ Hỗ trợ phiên bản: <b>1.20 - 1.21.4</b></p>
-      <p class="ip">IP: <span id="ip">play.verdantsmp.com</span></p>
-      <a class="btn" href="#" onclick="copyIP()">📋 Copy IP</a>
-      <a class="btn" href="https://discord.gg/verdantsmp" target="_blank">💬 Tham gia Discord</a>
-      <p>👑 Admin: <b>VennLMAO</b></p>
-    </div>
+  <!-- IP Server -->
+  <div class="section">
+    <h2>🎮 IP Server</h2>
+    <p id="server-ip">play.verdantsmp.com (1.20 - 1.21.4)</p>
+    <a class="btn" onclick="copyText('server-ip')">📋 Copy IP</a>
+  </div>
+
+  <!-- Shop -->
+  <div class="section">
+    <h2>🛒 Shop Key</h2>
+    <p>Stone: 10k = 10 key</p>
+    <p>Prime: 10k = 8 key</p>
+    <p>Crimson: 10k = 6 key</p>
+    <p>Gold: 10k = 6 key</p>
+    <p>Amethyst: 10k = 5 key</p>
+  </div>
+
+  <!-- Kit -->
+  <div class="section">
+    <h2>⚔️ Kit Rank</h2>
+    <p>VIP: 50k</p>
+    <p>MVP: 60k</p>
+    <p>KING: 70k</p>
+    <p>GHOST: 100k</p>
+  </div>
+
+  <!-- Discord -->
+  <div class="section">
+    <h2>💬 Discord</h2>
+    <p id="discord-link">https://discord.gg/3MyHuSsb</p>
+    <a class="btn" href="https://discord.gg/3MyHuSsb" target="_blank">🌐 Tham gia</a>
+    <a class="btn" onclick="copyText('discord-link')">📋 Copy Link</a>
+  </div>
+
+  <script>
+    function copyText(elementId) {
+      const text = document.getElementById(elementId).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("✅ Đã copy: " + text);
+      });
+    }
+  </script>
+
+</body>
+</html>    </div>
 
     <footer>
       © 2025 VerdantSMP | Designed with ❤️
