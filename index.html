@@ -1,98 +1,188 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shop Key & Kit Rank</title>
+  <title>VerdantSMP Shop</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #0a2342, #0f4c75);
-      color: #fff;
-    }
-    .section {
-      margin: 20px;
-      padding: 20px;
-      background: rgba(0,0,0,0.3);
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    }
-    .section h2 {
-      margin-bottom: 15px;
-      font-size: 22px;
-    }
-    .shop {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 16px;
-    }
-    .card {
-      background: #222;
-      border-radius: 12px;
-      padding: 16px;
+      font-family: 'Poppins', sans-serif;
+      color: white;
       text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      transition: transform .2s;
+      min-height: 100vh;
+      background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #1a2a6c);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-    .card:hover {
-      transform: translateY(-5px);
+
+    @keyframes gradient {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
     }
+
+    h1 {
+      margin-top: 30px;
+      font-size: 40px;
+      font-weight: 700;
+    }
+
+    .ip-box {
+      background: rgba(0,0,0,0.6);
+      padding: 10px 20px;
+      border-radius: 15px;
+      margin: 10px;
+      display: inline-block;
+      font-size: 18px;
+    }
+
+    .shop-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      width: 90%;
+      max-width: 1000px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: rgba(0,0,0,0.7);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    }
+
     .card img {
-      width: 70px;
-      height: 70px;
+      width: 80px;
       margin-bottom: 10px;
     }
-    .price {
-      margin-top: 6px;
+
+    .title {
+      font-size: 20px;
       font-weight: bold;
-      color: #ffd700;
+      margin: 5px 0;
     }
-    .kit-list p {
-      margin: 8px 0;
-      font-size: 18px;
+
+    .price {
+      font-size: 16px;
+      margin-bottom: 15px;
+      color: #ccc;
+    }
+
+    .options {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+
+    .options button {
+      flex: 1;
+      margin: 3px;
+      padding: 8px;
+      border: none;
+      border-radius: 10px;
+      background: #222;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .options button:hover {
+      background: #007bff;
+    }
+
+    .cart-btn {
+      background: #007bff;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 12px;
+      font-weight: bold;
+      width: 100%;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .cart-btn:hover {
+      background: #0056b3;
+    }
+
+    .discord {
+      margin: 40px 0;
+    }
+
+    .discord a {
+      display: inline-block;
+      padding: 12px 20px;
+      background: #5865F2;
+      border-radius: 12px;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .discord a:hover {
+      background: #404EED;
     }
   </style>
 </head>
 <body>
-  <!-- Shop Key -->
-  <div class="section">
-    <h2>🔑 Danh sách Key</h2>
-    <div class="shop" id="shop"></div>
-  </div>
 
-  <!-- Kit Rank -->
-  <div class="section">
-    <h2>⚔️ Kit Rank</h2>
-    <div class="kit-list">
-      <p>VIP: 50k</p>
-      <p>MVP: 60k</p>
-      <p>KING: 70k</p>
-      <p>GHOST: 100k</p>
+  <h1>VerdantSMP Shop</h1>
+  <div class="ip-box">🌐 IP: play.VerdantSMP.com</div>
+
+  <h2>🔑 Key Shop</h2>
+  <div class="shop-section">
+    <div class="card">
+      <img src="https://i.ibb.co/r6mM8gX/green-key.png" alt="Common">
+      <div class="title">Common</div>
+      <div class="price">1k</div>
+      <button class="cart-btn">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="https://i.ibb.co/V3pGf9R/blue-key.png" alt="Prime">
+      <div class="title">Prime</div>
+      <div class="price">2k</div>
+      <button class="cart-btn">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="https://i.ibb.co/WfC9p5L/red-key.png" alt="Crimson">
+      <div class="title">Crimson</div>
+      <div class="price">3k</div>
+      <button class="cart-btn">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="https://i.ibb.co/Y3zr6tV/gold-key.png" alt="Gold">
+      <div class="title">Gold</div>
+      <div class="price">4k</div>
+      <button class="cart-btn">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="https://i.ibb.co/DtshjTh/purple-key.png" alt="Amethyst">
+      <div class="title">Amethyst</div>
+      <div class="price">5k</div>
+      <button class="cart-btn">Add to Cart</button>
     </div>
   </div>
 
-  <script>
-    const PRODUCTS = [
-      {id:'stone',    name:'Stone',    price:10000,  img:'https://cdn-icons-png.flaticon.com/512/906/906334.png'},
-      {id:'prime',    name:'Prime',    price:20000,  img:'https://cdn-icons-png.flaticon.com/512/906/906334.png'},
-      {id:'crimson',  name:'Crimson',  price:30000,  img:'https://cdn-icons-png.flaticon.com/512/906/906334.png'},
-      {id:'gold',     name:'Gold',     price:40000,  img:'https://cdn-icons-png.flaticon.com/512/906/906334.png'},
-      {id:'amethyst', name:'Amethyst', price:50000,  img:'https://cdn-icons-png.flaticon.com/512/906/906334.png'},
-    ];
+  <h2>⚔ Kit Rank</h2>
+  <div class="shop-section">
+    <div class="card"><div class="title">KIT VIP</div><div class="price">50k</div></div>
+    <div class="card"><div class="title">KIT MVP</div><div class="price">60k</div></div>
+    <div class="card"><div class="title">KIT KING</div><div class="price">70k</div></div>
+    <div class="card"><div class="title">KIT GHOST</div><div class="price">100k</div></div>
+  </div>
 
-    const shop = document.getElementById("shop");
+  <div class="discord">
+    <a href="https://discord.gg/zkScj59TJj" target="_blank">Join Discord</a>
+  </div>
 
-    PRODUCTS.forEach(p => {
-      const card = document.createElement("div");
-      card.className = "card";
-      card.innerHTML = `
-        <img src="${p.img}" alt="${p.name}">
-        <h3>${p.name}</h3>
-        <div class="price">${(p.price/1000)}k</div>
-      `;
-      shop.appendChild(card);
-    });
-  </script>
 </body>
-    </html>
+  </html>
