@@ -1,9 +1,99 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
-  <title>Website đầu tiên</title>
+  <meta charset="UTF-8">
+  <title>VerdantSMP - Minecraft Server</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+      background: url('https://wallpapercave.com/wp/wp10401598.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+    .overlay {
+      background: rgba(0,0,0,0.6);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .logo img {
+      max-width: 280px;
+      margin-top: 20px;
+    }
+    h1 {
+      font-size: 38px;
+      color: #4caf50;
+      margin-top: 20px;
+    }
+    .info {
+      background: rgba(0,0,0,0.7);
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 12px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+    .ip {
+      font-size: 22px;
+      font-weight: bold;
+      color: #ffeb3b;
+      margin: 10px 0;
+    }
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 20px;
+      font-size: 18px;
+      color: white;
+      background: #4caf50;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #45a049;
+    }
+    footer {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #ccc;
+    }
+  </style>
 </head>
 <body>
-  <h1>Xin chào! Đây là website đầu tiên mình tạo bằng GitHub Pages 📱🚀</h1>
+  <div class="overlay">
+    <!-- Logo server -->
+    <div class="logo">
+      <img src="https://raw.githubusercontent.com/<username>/<repo>/main/VerdantSMP.png" alt="VerdantSMP Logo">
+    </div>
+
+    <!-- Tiêu đề -->
+    <h1>🌍 VerdantSMP</h1>
+
+    <!-- Thông tin server -->
+    <div class="info">
+      <p>⚔️ Hỗ trợ phiên bản: <b>1.20 - 1.21.4</b></p>
+      <p class="ip">IP: <span id="ip">play.verdantsmp.com</span></p>
+      <a class="btn" href="#" onclick="copyIP()">📋 Copy IP</a>
+      <a class="btn" href="https://discord.gg/verdantsmp" target="_blank">💬 Tham gia Discord</a>
+      <p>👑 Admin: <b>VennLMAO</b></p>
+    </div>
+
+    <footer>
+      © 2025 VerdantSMP | Designed with ❤️
+    </footer>
+  </div>
+
+  <script>
+    function copyIP() {
+      const ip = document.getElementById("ip").innerText;
+      navigator.clipboard.writeText(ip).then(() => {
+        alert("✅ Đã copy IP: " + ip);
+      });
+    }
+  </script>
 </body>
-</html>
+  </html>
